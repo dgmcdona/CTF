@@ -1,7 +1,12 @@
 #!/usr/bin/env python
 
+'''
+This is a script for automatically unzipping a repeatedly compressed file. 
+Prints the contents of the file to stdout using cat when ASCII is detected.
+WARNING: DESTRUCTIVE --- Make a copy of the starting file before running.
+TODO --- Add clauses for more zip formats: 7z, etc.
+'''
 from pwn import *
-from time import sleep
 
 s = ssh('bandit12', 'bandit.labs.overthewire.org', 2220, '5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu')
 
@@ -42,6 +47,3 @@ for i in xrange(100):
 		print io.recvline();
 		s.close()	
 		break
-	
-#thedata = io.sendline('ls').recvall()
-#print thedata
